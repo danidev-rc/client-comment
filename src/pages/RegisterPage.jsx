@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form'
-import { userAuth } from '../context/AuthContext'
+import { useAuth } from '../context/AuthContext'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
@@ -10,7 +10,7 @@ export default function RegisterPage() {
     handleSubmit,
     formState: { errors },
   } = useForm()
-  const { signup, isAuthenticated, errors: registerErrors } = userAuth()
+  const { signup, isAuthenticated, errors: registerErrors } = useAuth()
   const navigate = useNavigate()
 
   useEffect(() => {

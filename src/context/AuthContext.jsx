@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 export const AuthContext = createContext()
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const userAuth = () => {
+export const useAuth = () => {
   const context = useContext(AuthContext)
   if (!context) {
     throw new Error('useAuth must be used within an AuthProvider')
@@ -13,7 +13,6 @@ export const userAuth = () => {
   return context
 }
 
-// eslint-disable-next-line react/prop-types
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -92,7 +91,7 @@ export const AuthProvider = ({ children }) => {
   }, [])
 
   return (
-    <AuthContext
+    <AuthContext.Provider
       value={{
         signup,
         signin,
@@ -104,6 +103,6 @@ export const AuthProvider = ({ children }) => {
       }}
     >
       {children}
-    </AuthContext>
+    </AuthContext.Provider>
   )
 }
