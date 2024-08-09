@@ -14,7 +14,7 @@ export default function RegisterPage() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (isAuthenticated) navigate('/Home')
+    if (isAuthenticated) navigate('/comments')
   }, [isAuthenticated])
 
   const onSubmit = handleSubmit(async (values) => {
